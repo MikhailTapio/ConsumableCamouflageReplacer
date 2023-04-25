@@ -158,7 +158,6 @@ root = tree.getroot()
 print(get_tex())
 
 for i in range(1, 4):
-    se = 0
     try:
         se = int(input(get_change(i)))
     except ValueError:
