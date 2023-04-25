@@ -2,3 +2,5 @@
 /.idea
 /build
 *.spec
+camouflages.xml
+camouflages_modified.xml

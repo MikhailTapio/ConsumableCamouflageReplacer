@@ -94,7 +94,10 @@ def get_fnf() -> str:
 
 
 def get_parse() -> str:
-    return "camouflages.xml 分析失败！请检查你的文件……" if language == 0 else "Failed to parse camouflages.xml! Please check your file..."
+    return "camouflages.xml 分析失败！请检查你的文件……" if language == 0 else '''
+Failed to parse camouflages.xml!
+Please check your file...
+'''
 
 
 def init_uv(elem: Et.Element, typ: int):
