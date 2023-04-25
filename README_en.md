@@ -19,8 +19,8 @@
   ](https://github.com/MikhailTapio/ConsumableCamouflageReplacer/releases/download/1.0.0/consumable_camouflage_replacer.exe);
   Move the executable to the **res_unpack** directory and run it;
 - Follow the program\'s instructions;
-- If the **camouflages.xml** was available and you\'ve done it right, you will be able to see a *
-  *camouflages_modified.xml** in the **res_unpack** directory after the program exits;
+- If the **camouflages.xml** was available and you\'ve done it right, you will be able to see a
+  **camouflages_modified.xml** in the **res_unpack** directory after the program exits;
 
 ### Replace the game\'s camouflages.xml
 
