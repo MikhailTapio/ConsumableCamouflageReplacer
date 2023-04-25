@@ -6,8 +6,8 @@
 
 ### 从游戏导出 camouflages.xml
 
--
-下载并安装[WOWS Unpack Tool](https://forum.worldofwarships.eu/topic/113847-all-wows-unpack-tool-unpack-game-client-resources/)；
+- 下载并安装
+  [WOWS Unpack Tool](https://forum.worldofwarships.eu/topic/113847-all-wows-unpack-tool-unpack-game-client-resources/)；
 - 打开 WOWS Unpack Tool，点击“Load Content”，展开 res 文件夹，双击 camouflages.xml，点击 Unpack；
 - 在 WOWS Unpack Tool 运行文件夹（一般是战舰世界游戏安装文件夹）下，进入 res_unpack 文件夹，若前两步操作无误，应能看到
   camouflages.xml 文件；
