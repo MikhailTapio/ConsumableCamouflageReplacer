@@ -71,7 +71,7 @@ Please enter a number to determine which of the following camouflage
 2. Bronze camouflage
 3. Silver camouflage
 4. Golden camouflage
-    '''
+'''
 
 
 def get_change(c: int) -> str:
@@ -87,6 +87,14 @@ camouflages_modified.xml in the same directory.
 
 def get_exit() -> str:
     return "按回车键退出……" if language == 0 else "Press ENTER to exit..."
+
+
+def get_fnf() -> str:
+    return "未找到 camouflages.xml 文件……" if language == 0 else "File camouflages.xml not found..."
+
+
+def get_parse() -> str:
+    return "camouflages.xml 分析失败！请检查你的文件……" if language == 0 else "Failed to parse camouflages.xml! Please check your file..."
 
 
 def init_uv(elem: Et.Element, typ: int):
@@ -131,7 +139,17 @@ except ValueError:
 print(get_desc())
 input(get_agree())
 
-tree = Et.parse('camouflages.xml')
+try:
+    tree = Et.parse('camouflages.xml')
+except FileNotFoundError:
+    print(get_fnf())
+    input(get_exit())
+    exit(0)
+except Et.ParseError:
+    print(get_parse())
+    input(get_exit())
+    exit(0)
+
 root = tree.getroot()
 
 print(get_tex())
