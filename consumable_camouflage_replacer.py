@@ -167,7 +167,6 @@ for i in range(1, 4):
         for camo in root.findall(".//camouflage[name='camo_{}_tile']".format(i)):
             camo.remove(camo.find('useColorScheme'))
             camo.remove(camo.find('colorSchemes'))
-            # 更改属性
             camo.remove(camo.find('tiled'))
             camo.remove(camo.find('UV'))
             uv = Et.Element('UV')
@@ -178,7 +177,6 @@ for i in range(1, 4):
             init_textures(textures, se - 1)
             camo.append(textures)
 
-# 将修改后的XML文件写回磁盘
 tree.write(file_or_filename='camouflages_modified.xml')
 print(get_completed())
 input(get_exit())
