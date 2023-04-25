@@ -15,8 +15,8 @@
 
 ### Modify the camouflages.xml via the program
 
-- In the project\'s Release, download the [**consumable_camouflage_replacer.exe
-  **](https://github.com/MikhailTapio/ConsumableCamouflageReplacer/releases/download/1.0.0/consumable_camouflage_replacer.exe);
+- In the project\'s Release, download the [consumable_camouflage_replacer.exe
+  ](https://github.com/MikhailTapio/ConsumableCamouflageReplacer/releases/download/1.0.0/consumable_camouflage_replacer.exe);
   Move the executable to the **res_unpack** directory and run it;
 - Follow the program\'s instructions;
 - If the **camouflages.xml** was available and you\'ve done it right, you will be able to see a *
