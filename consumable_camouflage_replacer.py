@@ -12,6 +12,12 @@ uv_all = [
     {'DeckHouse': '1.5 1.5', 'Tile': '3 3', 'Gun': '0.8 0.8', 'Director': '0.5 0.5',
      'Plane': '0.5 0.5', 'Float': '0.5 0.5', 'Misc': '0.3 0.3', 'Wire': '0.5 0.5', 'Bulge': '1 1'},
     {'DeckHouse': '1.5 1.5', 'Tile': '3 3', 'Gun': '0.8 0.8', 'Director': '0.5 0.5',
+     'Plane': '0.5 0.5', 'Float': '0.5 0.5', 'Misc': '0.3 0.3', 'Wire': '0.5 0.5', 'Bulge': '1 1'},
+    {'DeckHouse': '1.5 1.5', 'Tile': '3 3', 'Gun': '0.8 0.8', 'Director': '0.5 0.5',
+     'Plane': '0.5 0.5', 'Float': '0.5 0.5', 'Misc': '0.3 0.3', 'Wire': '0.5 0.5', 'Bulge': '1 1'},
+    {'DeckHouse': '1.5 1.5', 'Tile': '3 3', 'Gun': '0.8 0.8', 'Director': '0.5 0.5',
+     'Plane': '0.5 0.5', 'Float': '0.5 0.5', 'Misc': '0.3 0.3', 'Wire': '0.5 0.5', 'Bulge': '1 1'},
+    {'DeckHouse': '1.5 1.5', 'Tile': '3 3', 'Gun': '0.8 0.8', 'Director': '0.5 0.5',
      'Plane': '0.5 0.5', 'Float': '0.5 0.5', 'Misc': '0.3 0.3', 'Wire': '0.5 0.5', 'Bulge': '1 1'}
 ]
 
@@ -23,7 +29,13 @@ tex_all = [
     ['content/gameplay/common/camouflage/textures/mat_Rank_Silver_a.dds', 'content/gameplay/common/camouflage'
                                                                           '/textures/mat_Rank_Silver_mgn.dds'],
     ['content/gameplay/common/camouflage/textures/mat_Rank_Gold_a.dds', 'content/gameplay/common/camouflage/textures'
-                                                                        '/mat_Rank_Gold_mgn.dds']
+                                                                        '/mat_Rank_Gold_mgn.dds'],
+    ['content/gameplay/common/camouflage/textures/mat_Rank_Bronze_a.dds', 'content/gameplay/common/camouflage/textures'
+                                                                          '/mat_Steel_01_mgn.dds'],
+    ['content/gameplay/common/camouflage/textures/mat_Rank_Silver_a.dds', 'content/gameplay/common/camouflage/textures'
+                                                                          '/mat_Steel_01_mgn.dds'],
+    ['content/gameplay/common/camouflage/textures/mat_Rank_Gold_a.dds', 'content/gameplay/common/camouflage/textures'
+                                                                        '/mat_Steel_01_mgn.dds']
 ]
 
 
@@ -60,17 +72,23 @@ def get_tex() -> str:
 请输入数字以决定当前涂装应被修改为哪种涂装：
 0. 不修改
 1. 钢铁涂装
-2. 排位铜涂装
-3. 排位银涂装
-4. 排位金涂装
+2. 排位铜涂装（原版）
+3. 排位银涂装（原版）
+4. 排位金涂装（原版）
+5. 排位铜涂装（无纹路）
+6. 排位银涂装（无纹路）
+7. 排位金涂装（无纹路）
 ''' if language == 0 else '''
 Please enter a number to determine which of the following camouflage
  you would like to change the current camouflage to:
 0. Do not change
 1. Steel camouflage
-2. Bronze camouflage
-3. Silver camouflage
-4. Golden camouflage
+2. Bronze camouflage (Normal)
+3. Silver camouflage (Normal)
+4. Golden camouflage (Normal)
+5. Bronze camouflage (No Grain)
+6. Silver camouflage (No Grain)
+7. Golden camouflage (No Grain)
 '''
 
 
