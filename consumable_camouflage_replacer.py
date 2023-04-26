@@ -1,27 +1,19 @@
 import xml.etree.ElementTree as Et
+from typing import List
 
-version = '1.1.0'
+version = '1.2.0'
 
 language = 0
 
-tex_keys = ['Hull', 'DeckHouse', 'Gun', 'Director', 'Plane', 'Float', 'Misc', 'Bulge', 'Wire', 'Plane', 'Float']
+tex_keys = ['Hull', 'DeckHouse', 'Gun', 'Director', 'Plane', 'Float', 'Misc', 'Bulge', 'Wire']
 
-uv_all = [
-    {'DeckHouse': '0.5 0.5', 'Tile': '1 1', 'Gun': '0.5 0.5', 'Director': '0.5 0.5',
-     'Plane': '0.5 0.5', 'Float': '0.5 0.5', 'Misc': '0.3 0.3', 'Wire': '0.5 0.5', 'Bulge': '1 1'},
-    {'DeckHouse': '1.5 1.5', 'Tile': '3 3', 'Gun': '0.8 0.8', 'Director': '0.5 0.5',
-     'Plane': '0.5 0.5', 'Float': '0.5 0.5', 'Misc': '0.3 0.3', 'Wire': '0.5 0.5', 'Bulge': '1 1'},
-    {'DeckHouse': '1.5 1.5', 'Tile': '3 3', 'Gun': '0.8 0.8', 'Director': '0.5 0.5',
-     'Plane': '0.5 0.5', 'Float': '0.5 0.5', 'Misc': '0.3 0.3', 'Wire': '0.5 0.5', 'Bulge': '1 1'},
-    {'DeckHouse': '1.5 1.5', 'Tile': '3 3', 'Gun': '0.8 0.8', 'Director': '0.5 0.5',
-     'Plane': '0.5 0.5', 'Float': '0.5 0.5', 'Misc': '0.3 0.3', 'Wire': '0.5 0.5', 'Bulge': '1 1'},
-    {'DeckHouse': '1.5 1.5', 'Tile': '3 3', 'Gun': '0.8 0.8', 'Director': '0.5 0.5',
-     'Plane': '0.5 0.5', 'Float': '0.5 0.5', 'Misc': '0.3 0.3', 'Wire': '0.5 0.5', 'Bulge': '1 1'},
-    {'DeckHouse': '1.5 1.5', 'Tile': '3 3', 'Gun': '0.8 0.8', 'Director': '0.5 0.5',
-     'Plane': '0.5 0.5', 'Float': '0.5 0.5', 'Misc': '0.3 0.3', 'Wire': '0.5 0.5', 'Bulge': '1 1'},
-    {'DeckHouse': '1.5 1.5', 'Tile': '3 3', 'Gun': '0.8 0.8', 'Director': '0.5 0.5',
-     'Plane': '0.5 0.5', 'Float': '0.5 0.5', 'Misc': '0.3 0.3', 'Wire': '0.5 0.5', 'Bulge': '1 1'}
+tex_locales = [
+    ['船体', '甲板室', '火炮', '火控系统', '舰载飞机', '救生船', '杂项', '凸出部分', '金属网'],
+    ['Hull', 'DeckHouse', 'Gun', 'Director', 'Plane', 'Float', 'Misc', 'Bulge', 'Wire']
 ]
+
+uv_all = {'DeckHouse': '1.5 1.5', 'Tile': '3 3', 'Gun': '0.8 0.8', 'Director': '0.5 0.5',
+          'Plane': '0.5 0.5', 'Float': '0.5 0.5', 'Misc': '0.3 0.3', 'Wire': '0.5 0.5', 'Bulge': '1 1'}
 
 tex_all = [
     ['content/gameplay/common/camouflage/textures/mat_Steel_01_a.dds', 'content/gameplay/common/camouflage/textures'
@@ -74,7 +66,7 @@ Press ENTER to go ahead.
 def get_tex() -> str:
     return '''
 请输入数字以决定当前涂装应被修改为哪种涂装：
-0. 不修改
+0. 不修改（仅在“全部修改模式”下可用）
 1. 钢铁涂装
 2. 排位铜涂装（原版）
 3. 排位银涂装（原版）
@@ -85,7 +77,7 @@ def get_tex() -> str:
 ''' if language == 0 else '''
 Please enter a number to determine which of the following camouflage
  you would like to change the current camouflage to:
-0. Do not change
+0. Do not change (Only available in "ALL Mode")
 1. Steel camouflage
 2. Bronze camouflage (Normal)
 3. Silver camouflage (Normal)
@@ -96,8 +88,26 @@ Please enter a number to determine which of the following camouflage
 '''
 
 
-def get_change(c: int) -> str:
-    return ('camo_{}_tile 应被更改为：' if language == 0 else 'camo_{}_tile should be changed to: ').format(c)
+def get_mode(s: int) -> str:
+    return ('''
+请选择 camo_{}_tile 的涂装修改模式：
+0. 全部修改模式
+1. 分部位修改模式
+''' if language == 0 else '''
+Please select a camouflage modification mode for camo_{}_tile:
+0. ALL Mode
+1. SUBPART Mode
+''').format(s)
+
+
+def get_change(c: int, part: int) -> str:
+    if part == -1:
+        return (
+            'camo_{}_tile 修改为：' if language == 0 else "camo_{}_tile should be modified to be: ").format(c)
+    else:
+        return (
+            'camo_{}_tile {} 部分修改为：' if language == 0 else "camo_{}_tile\'s {} part should be modified to be") \
+            .format(c, tex_locales[language][part])
 
 
 def get_completed() -> str:
@@ -122,8 +132,8 @@ Please check your file...
 '''
 
 
-def init_uv(elem: Et.Element, typ: int):
-    for k, v in uv_all[typ].items():
+def init_uv(elem: Et.Element):
+    for k, v in uv_all.items():
         n = Et.Element(k)
         n.text = v
         elem.append(n)
@@ -142,9 +152,10 @@ def init_mgn(elem: Et.Element, text: str):
     elem.append(n)
 
 
-def init_textures(elem: Et.Element, typ: int):
-    tex = tex_all[typ]
-    for k in tex_keys:
+def init_textures(elem: Et.Element, modifications: List[int]):
+    for z in range(0, 9):
+        k = tex_keys[z]
+        tex = tex_all[modifications[z]]
         r = Et.Element(k)
         r.text = tex[0]
         elem.append(r)
@@ -159,8 +170,10 @@ try:
 0. 中文
 1. English
 '''))
+    if language != 0:
+        language = 1
 except ValueError:
-    language = 0
+    language = 1
 print(get_desc())
 input(get_agree())
 
@@ -177,25 +190,45 @@ except Et.ParseError:
 
 root = tree.getroot()
 
-print(get_tex())
-
 for i in range(1, 4):
+    modification = [1, 1, 1, 1, 1, 1, 1, 1, 1]
     try:
-        se = int(input(get_change(i)))
+        mode = int(input(get_mode(i)))
     except ValueError:
-        se = 0
-    if se != 0:
+        mode = 0
+    if mode == 0:
+        print(get_tex())
+        try:
+            se = int(input(get_change(i, -1))) - 1
+            modification = [se, se, se, se, se, se, se, se, se]
+            if se == -1:
+                modification = None
+        except ValueError:
+            modification = None
+    else:
+        for x in range(0, 9):
+            print(get_tex())
+            try:
+                sp = int(input(get_change(i, x))) - 1
+                if sp == -1:
+                    print("分部位修改模式必须修改，默认改为钢铁涂装" if language == 0 else '''
+Must change when in SUBPART mode, use Steel camouflage by default''')
+                    sp = 0
+            except ValueError:
+                sp = 0
+            modification[x] = sp
+    if modification is not None:
         for camo in root.findall(".//camouflage[name='camo_{}_tile']".format(i)):
             camo.remove(camo.find('useColorScheme'))
             camo.remove(camo.find('colorSchemes'))
             camo.remove(camo.find('tiled'))
             camo.remove(camo.find('UV'))
             uv = Et.Element('UV')
-            init_uv(uv, se - 1)
+            init_uv(uv)
             camo.append(uv)
             camo.remove(camo.find('Textures'))
             textures = Et.Element('Textures')
-            init_textures(textures, se - 1)
+            init_textures(textures, modification)
             camo.append(textures)
 
 tree.write(file_or_filename='camouflages_modified.xml')
