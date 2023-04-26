@@ -1,3 +1,16 @@
+# Consumable Camouflage replacer
+# Copyright (C) 2023 MikhailTapio
+#
+# This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
+# License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any
+# later version.
+#
+# This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+# warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with this program. If not,
+# see <https://www.gnu.org/licenses/>.
+
 import xml.etree.ElementTree as Et
 from typing import List
 
@@ -9,7 +22,7 @@ tex_keys = ['Hull', 'DeckHouse', 'Gun', 'Director', 'Plane', 'Float', 'Misc', 'B
 
 tex_locales = [
     ['船体', '甲板室', '火炮', '火控系统', '舰载飞机', '救生船', '杂项', '凸出部分', '金属网'],
-    ['Hull', 'DeckHouse', 'Gun', 'Director', 'Plane', 'Float', 'Misc', 'Bulge', 'Wire']
+    tex_keys
 ]
 
 uv_all = {'DeckHouse': '1.5 1.5', 'Tile': '3 3', 'Gun': '0.8 0.8', 'Director': '0.5 0.5',
@@ -33,18 +46,30 @@ tex_all = [
 ]
 
 
+def get_license() -> str:
+    return '''
+Consumable Camouflage replacer
+Copyright (C) 2023 MikhailTapio
+This program comes with ABSOLUTELY NO WARRANTY;
+This is free software, and you are welcome to redistribute it
+under certain conditions.
+'''
+
+
 def get_desc() -> str:
     return ('''
 消耗型涂装替换器
 作者：北斗余晖
 版本：{}
+源代码地址：https://github.com/MikhailTapio/ConsumableCamouflageReplacer
 声明：
 1. 本软件系作者出于兴趣爱好制作——仅供学习交流，不得用于商业用途，请于 24 小时内删除！
 2. 本软件仅对特定 XML 文件作修改。
 ''' if language == 0 else '''
 Consumable Camouflage Replacer
-Author: PloughRemnant
+Author: MikhailTapio
 Version: {}
+Source: https://github.com/MikhailTapio/ConsumableCamouflageReplacer
 Disclaimer:
 1. The software was created by the author as a hobby - for learning and communication purposes only,
  not for commercial use, please delete within 24 hours!
@@ -164,6 +189,7 @@ def init_textures(elem: Et.Element, modifications: List[int]):
         elem.append(mgn)
 
 
+print(get_license())
 try:
     language = int(input('''
 请选择你的语言(Please select your language):
