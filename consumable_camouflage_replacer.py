@@ -62,6 +62,7 @@ def get_desc() -> str:
 作者：北斗余晖
 版本：{}
 源代码地址：https://github.com/MikhailTapio/ConsumableCamouflageReplacer
+(国内访问：https://gitee.com/mikhailtapio/ConsumableCamouflageReplacer)
 声明：
 1. 本软件系作者出于兴趣爱好制作——仅供学习交流，不得用于商业用途，请于 24 小时内删除！
 2. 本软件仅对特定 XML 文件作修改。
