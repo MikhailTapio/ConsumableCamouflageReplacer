@@ -1,5 +1,7 @@
 import xml.etree.ElementTree as Et
 
+version = '1.1.0'
+
 language = 0
 
 tex_keys = ['Hull', 'DeckHouse', 'Gun', 'Director', 'Plane', 'Float', 'Misc', 'Bulge', 'Wire', 'Plane', 'Float']
@@ -40,20 +42,22 @@ tex_all = [
 
 
 def get_desc() -> str:
-    return '''
+    return ('''
 消耗型涂装替换器
 作者：北斗余晖
+版本：{}
 声明：
 1. 本软件系作者出于兴趣爱好制作——仅供学习交流，不得用于商业用途，请于 24 小时内删除！
 2. 本软件仅对特定 XML 文件作修改。
 ''' if language == 0 else '''
 Consumable Camouflage Replacer
 Author: PloughRemnant
+Version: {}
 Disclaimer:
 1. The software was created by the author as a hobby - for learning and communication purposes only,
  not for commercial use, please delete within 24 hours!
 2. The software only makes changes to specific XML files.
-'''
+''').format(version)
 
 
 def get_agree() -> str:
