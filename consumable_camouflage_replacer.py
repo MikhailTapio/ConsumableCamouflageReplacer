@@ -42,7 +42,15 @@ tex_all = [
     ['content/gameplay/common/camouflage/textures/mat_Rank_Silver_a.dds', 'content/gameplay/common/camouflage/textures'
                                                                           '/mat_Steel_01_mgn.dds'],
     ['content/gameplay/common/camouflage/textures/mat_Rank_Gold_a.dds', 'content/gameplay/common/camouflage/textures'
-                                                                        '/mat_Steel_01_mgn.dds']
+                                                                        '/mat_Steel_01_mgn.dds'],
+    ['content/gameplay/common/camouflage/textures/mat_Red_01_a.dds', 'content/gameplay/common/camouflage/textures'
+                                                                     '/mat_Steel_01_mgn.dds'],
+    ['content/gameplay/common/camouflage/textures/mat_Red_a.dds', 'content/gameplay/common/camouflage/textures'
+                                                                  '/mat_Steel_01_mgn.dds'],
+    ['content/gameplay/common/camouflage/textures/Mat_BlackFriday_2019_Miscs_a.dds',
+     'content/gameplay/common/camouflage/textures/mat_Steel_01_mgn.dds'],
+    ['content/gameplay/common/camouflage/textures/mat_Kitakaze_Rangers_a.dds',
+     'content/gameplay/common/camouflage/textures/mat_Steel_01_mgn.dds']
 ]
 
 
@@ -100,6 +108,10 @@ def get_tex() -> str:
 5. 排位铜涂装（无纹路）
 6. 排位银涂装（无纹路）
 7. 排位金涂装（无纹路）
+8. 红色涂装（偏亮）
+9. 红色涂装（偏暗）
+10. 黑色涂装
+11. 茶蓝色涂装
 ''' if language == 0 else '''
 Please enter a number to determine which of the following camouflage
  you would like to change the current camouflage to:
@@ -111,6 +123,10 @@ Please enter a number to determine which of the following camouflage
 5. Bronze camouflage (No Grain)
 6. Silver camouflage (No Grain)
 7. Golden camouflage (No Grain)
+8. Red camouflage (Lighter)
+9. Red camouflage (Darker)
+10. Black camouflage
+11. Tealish Blue camouflage
 '''
 
 
