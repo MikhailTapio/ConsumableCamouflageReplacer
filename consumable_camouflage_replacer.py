@@ -14,7 +14,7 @@
 import xml.etree.ElementTree as Et
 from typing import List
 
-version = '1.2.0'
+version = '1.2.1'
 
 language = 0
 
