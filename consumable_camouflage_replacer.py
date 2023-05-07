@@ -52,6 +52,8 @@ tex_all = [
     ['content/gameplay/common/camouflage/textures/mat_Kitakaze_Rangers_a.dds',
      'content/gameplay/common/camouflage/textures/mat_Steel_01_mgn.dds'],
     ['content/gameplay/common/camouflage/textures/mat_AzurSkin_plane_a.dds',
+     'content/gameplay/common/camouflage/textures/mat_Steel_01_mgn.dds'],
+    ['content/gameplay/common/camouflage/textures/Ship_dazzle_tile_Dragon_Boat_Festival.dds',
      'content/gameplay/common/camouflage/textures/mat_Steel_01_mgn.dds']
 ]
 
