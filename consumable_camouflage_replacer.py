@@ -29,27 +29,29 @@ uv_all = {'DeckHouse': '1.5 1.5', 'Tile': '3 3', 'Gun': '0.8 0.8', 'Director': '
           'Plane': '0.5 0.5', 'Float': '0.5 0.5', 'Misc': '0.3 0.3', 'Wire': '0.5 0.5', 'Bulge': '1 1'}
 
 tex_all = [
-    ['content/gameplay/common/camouflage/textures/mat_Steel_01_a.dds', 'content/gameplay/common/camouflage/textures'
-                                                                       '/mat_Steel_01_mgn.dds'],
-    ['content/gameplay/common/camouflage/textures/mat_Rank_Bronze_a.dds', 'content/gameplay/common/camouflage'
-                                                                          '/textures/mat_Rank_Bronze_mgn.dds'],
-    ['content/gameplay/common/camouflage/textures/mat_Rank_Silver_a.dds', 'content/gameplay/common/camouflage'
-                                                                          '/textures/mat_Rank_Silver_mgn.dds'],
-    ['content/gameplay/common/camouflage/textures/mat_Rank_Gold_a.dds', 'content/gameplay/common/camouflage/textures'
-                                                                        '/mat_Rank_Gold_mgn.dds'],
-    ['content/gameplay/common/camouflage/textures/mat_Rank_Bronze_a.dds', 'content/gameplay/common/camouflage/textures'
-                                                                          '/mat_Steel_01_mgn.dds'],
-    ['content/gameplay/common/camouflage/textures/mat_Rank_Silver_a.dds', 'content/gameplay/common/camouflage/textures'
-                                                                          '/mat_Steel_01_mgn.dds'],
-    ['content/gameplay/common/camouflage/textures/mat_Rank_Gold_a.dds', 'content/gameplay/common/camouflage/textures'
-                                                                        '/mat_Steel_01_mgn.dds'],
-    ['content/gameplay/common/camouflage/textures/mat_Red_01_a.dds', 'content/gameplay/common/camouflage/textures'
-                                                                     '/mat_Steel_01_mgn.dds'],
-    ['content/gameplay/common/camouflage/textures/mat_Red_a.dds', 'content/gameplay/common/camouflage/textures'
-                                                                  '/mat_Steel_01_mgn.dds'],
+    ['content/gameplay/common/camouflage/textures/mat_Steel_01_a.dds',
+     'content/gameplay/common/camouflage/textures/mat_Steel_01_mgn.dds'],
+    ['content/gameplay/common/camouflage/textures/mat_Rank_Bronze_a.dds',
+     'content/gameplay/common/camouflage/textures/mat_Rank_Bronze_mgn.dds'],
+    ['content/gameplay/common/camouflage/textures/mat_Rank_Silver_a.dds',
+     'content/gameplay/common/camouflage/textures/mat_Rank_Silver_mgn.dds'],
+    ['content/gameplay/common/camouflage/textures/mat_Rank_Gold_a.dds',
+     'content/gameplay/common/camouflage/textures/mat_Rank_Gold_mgn.dds'],
+    ['content/gameplay/common/camouflage/textures/mat_Rank_Bronze_a.dds',
+     'content/gameplay/common/camouflage/textures/mat_Steel_01_mgn.dds'],
+    ['content/gameplay/common/camouflage/textures/mat_Rank_Silver_a.dds',
+     'content/gameplay/common/camouflage/textures/mat_Steel_01_mgn.dds'],
+    ['content/gameplay/common/camouflage/textures/mat_Rank_Gold_a.dds',
+     'content/gameplay/common/camouflage/textures/mat_Steel_01_mgn.dds'],
+    ['content/gameplay/common/camouflage/textures/mat_Red_01_a.dds',
+     'content/gameplay/common/camouflage/textures/mat_Steel_01_mgn.dds'],
+    ['content/gameplay/common/camouflage/textures/mat_Red_a.dds',
+     'content/gameplay/common/camouflage/textures/mat_Steel_01_mgn.dds'],
     ['content/gameplay/common/camouflage/textures/Mat_BlackFriday_2019_Miscs_a.dds',
      'content/gameplay/common/camouflage/textures/mat_Steel_01_mgn.dds'],
     ['content/gameplay/common/camouflage/textures/mat_Kitakaze_Rangers_a.dds',
+     'content/gameplay/common/camouflage/textures/mat_Steel_01_mgn.dds'],
+    ['content/gameplay/common/camouflage/textures/mat_AzurSkin_plane_a.dds',
      'content/gameplay/common/camouflage/textures/mat_Steel_01_mgn.dds']
 ]
 
@@ -112,6 +114,8 @@ def get_tex() -> str:
 9. 红色涂装（偏暗）
 10. 黑色涂装
 11. 茶蓝色涂装
+12. 灰底金带（碧蓝航线）涂装
+13. 龙舟涂装
 ''' if language == 0 else '''
 Please enter a number to determine which of the following camouflage
  you would like to change the current camouflage to:
@@ -127,6 +131,8 @@ Please enter a number to determine which of the following camouflage
 9. Red camouflage (Darker)
 10. Black camouflage
 11. Tealish Blue camouflage
+12. Gold Stripes on A Grey Background (Azur Lane) camouflage
+13. Dragon Boat camouflage
 '''
 
 
