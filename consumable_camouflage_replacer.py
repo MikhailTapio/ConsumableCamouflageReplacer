@@ -112,12 +112,19 @@ def get_tex() -> str:
 5. 排位铜涂装（无纹路）
 6. 排位银涂装（无纹路）
 7. 排位金涂装（无纹路）
-8. 红色涂装（偏亮）
-9. 红色涂装（偏暗）
-10. 黑色涂装
-11. 茶蓝色涂装
-12. 灰底金带（碧蓝航线）涂装
-13. 龙舟涂装
+8. 红色（偏亮）涂装（光泽）
+9. 红色（偏暗）涂装（光泽）
+10. 黑色涂装（光泽）
+11. 茶蓝色涂装（光泽）
+12. 灰底金带（碧蓝航线）涂装（光泽）
+13. 龙舟涂装（光泽）
+1001. 奶白色涂装
+1008. 红色（偏亮）涂装
+1009. 红色（偏暗）涂装
+1010. 黑色涂装
+1011. 茶蓝色涂装
+1012. 灰底金带（碧蓝航线）涂装
+1013. 龙舟涂装
 ''' if language == 0 else '''
 Please enter a number to determine which of the following camouflage
  you would like to change the current camouflage to:
@@ -129,12 +136,19 @@ Please enter a number to determine which of the following camouflage
 5. Bronze camouflage (No Grain)
 6. Silver camouflage (No Grain)
 7. Golden camouflage (No Grain)
-8. Red camouflage (Lighter)
-9. Red camouflage (Darker)
-10. Black camouflage
-11. Tealish Blue camouflage
-12. Gold Stripes on A Grey Background (Azur Lane) camouflage
-13. Dragon Boat camouflage
+8. Red camouflage (Lighter, Shiny)
+9. Red camouflage (Darker, Shiny)
+10. Black camouflage (Shiny)
+11. Tealish Blue camouflage (Shiny)
+12. Gold Stripes on A Grey Background (Azur Lane) camouflage (Shiny)
+13. Dragon Boat camouflage (Shiny)
+1001. Milk White camouflage
+1008. Red camouflage (Lighter)
+1009. Red camouflage (Darker)
+1010. Black camouflage
+1011. Tealish Blue camouflage
+1012. Gold Stripes on A Grey Background (Azur Lane) camouflage
+1013. Dragon Boat camouflage
 '''
 
 
@@ -189,10 +203,10 @@ def init_uv(elem: Et.Element):
         elem.append(n)
 
 
-def init_mgn(elem: Et.Element, text: str):
+def init_mgn(elem: Et.Element, text: str, shiny: bool):
     elem.text = text
     m = Et.Element('Influence_m')
-    m.text = ' 1.0 '
+    m.text = ' 1.0 ' if shiny else '0.0'
     g = Et.Element('Influence_g')
     g.text = ' 1.0 '
     n = Et.Element('Influence_n')
@@ -205,12 +219,13 @@ def init_mgn(elem: Et.Element, text: str):
 def init_textures(elem: Et.Element, modifications: List[int]):
     for z in range(0, 9):
         k = tex_keys[z]
-        tex = tex_all[modifications[z]]
+        m_index_raw = modifications[z]
+        tex = tex_all[(m_index_raw - 1000) if m_index_raw >= 1000 else m_index_raw]
         r = Et.Element(k)
         r.text = tex[0]
         elem.append(r)
         mgn = Et.Element(k + '_mgn')
-        init_mgn(mgn, tex[1])
+        init_mgn(mgn, tex[1], m_index_raw < 1000)
         elem.append(mgn)
 
 
