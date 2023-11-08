@@ -10,11 +10,11 @@
 #
 # You should have received a copy of the GNU General Public License along with this program. If not,
 # see <https://www.gnu.org/licenses/>.
-
+import re
 import xml.etree.ElementTree as Et
 from typing import List
 
-version = '1.2.2'
+version = '1.2.3'
 
 language = 0
 
@@ -284,18 +284,27 @@ Must change when in SUBPART mode, use Steel camouflage by default''')
                 sp = 0
             modification[x] = sp
     if modification is not None:
-        for camo in root.findall(".//camouflage[name='camo_{}_tile']".format(i)):
-            camo.remove(camo.find('useColorScheme'))
-            camo.remove(camo.find('colorSchemes'))
-            camo.remove(camo.find('tiled'))
-            camo.remove(camo.find('UV'))
-            uv = Et.Element('UV')
-            init_uv(uv)
-            camo.append(uv)
-            camo.remove(camo.find('Textures'))
-            textures = Et.Element('Textures')
-            init_textures(textures, modification)
-            camo.append(textures)
+        modified = 0
+        name_pattern = "camo_{}_tile".format(i)
+        for camo in root.findall(".//camouflage[name]"):
+            name_element = camo.find('name')
+            if name_element is not None:
+                name_text = name_element.text
+                if re.sub(r'\s', '', name_text) == name_pattern:
+                    modified += 1
+                    camo.remove(camo.find('useColorScheme'))
+                    camo.remove(camo.find('colorSchemes'))
+                    camo.remove(camo.find('tiled'))
+                    camo.remove(camo.find('UV'))
+                    uv = Et.Element('UV')
+                    init_uv(uv)
+                    camo.append(uv)
+                    camo.remove(camo.find('Textures'))
+                    textures = Et.Element('Textures')
+                    init_textures(textures, modification)
+                    camo.append(textures)
+
+        print(f"Modified: {modified}")
 
 tree.write(file_or_filename='camouflages_modified.xml')
 print(get_completed())
