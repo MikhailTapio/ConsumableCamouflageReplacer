@@ -15,7 +15,7 @@
 ### 使用本软件修改 camouflages.xml
 
 - 在本项目的 Release 中下载 [consumable_camouflage_replacer.exe
-  ](https://github.com/MikhailTapio/ConsumableCamouflageReplacer/releases/download/1.2.2/ConsumableCamouflageReplacer-1.2.2.exe)
+  ](https://github.com/MikhailTapio/ConsumableCamouflageReplacer/releases/download/1.2.3/ConsumableCamouflageReplacer-1.2.3.exe)
   ，将该执行文件移动到 res_unpack 文件夹下并运行；
 - 按照程序指示操作；
 - 若 camouflages.xml 可用且您的操作无误，程序退出后，res_unpack 文件夹中应能看到 camouflages_modified.xml 文件；
