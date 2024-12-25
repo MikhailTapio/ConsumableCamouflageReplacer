@@ -6,11 +6,10 @@
 
 ### Export the camouflages.xml from the game
 
-- Download &
-  install [WOWS Unpack Tool](https://forum.worldofwarships.eu/topic/113847-all-wows-unpack-tool-unpack-game-client-resources/);
-- Run WOWS Unpack Tool, click **Load Content**, unfold the **res** directory, double-click the **camouflages.xml**,
+- Download & install an Unpack Tool: WOWS WG - [WOWS Unpack Tool](https://forum.worldofwarships.eu/topic/113847-all-wows-unpack-tool-unpack-game-client-resources/); WOWS RU - [MK Unpack Tool](https://gitlab.com/AutoSpy/mkut/raw/main/MKUnpackTool.exe);
+- Run the Unpack Tool, click **Load Content**, unfold the **res** directory, double-click the **camouflages.xml**,
   click **Unpack**;
-- Under the running directory of WOWS Unpack Tool (Commonly WoWs\'s installation directory), enter the **res_unpack**
+- Under the running directory of the Unpack Tool (Commonly WoWs\'s installation directory), enter the **res_unpack**
   directory; If the first two steps are correct, you should be able to see a **camouflages.xml**;
 
 ### Modify the camouflages.xml via the program
